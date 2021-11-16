@@ -321,9 +321,7 @@
 						
 						sin validaciones-->
 						<Sucursal>PUENTE ALTO</Sucursal>
-
-
-
+						
 						<!-- CdgSIISucur: condicional, largo 9, numerico.
 						Código sucursal, Código numérico entregado por el SII,que identifica a cada sucursal que
 						está identificada en el Servicio de Impuestos Internos. Si no hay sucursales se puede omitir
@@ -332,6 +330,9 @@
 							1. debe ser numero
 							2. Deber corresponder a un código registrado en el SII
 						-->
+
+						<!-- Solo para los que esten integrados tendremos este codigo y solo de la dirección de tipo "DOMICILIO", no esta en el alcance la selección de distintas sucursales por parte del Front -->
+
 						<CdgSIISucur>1234</CdgSIISucur>
 
 						<!-- DirOrigen: obligatorio, largo 60, alfanumerico.
