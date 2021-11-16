@@ -1,0 +1,1118 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<EnvioDTE
+	xmlns="http://www.sii.cl/SiiDte"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sii.cl/SiiDte EnvioDTE_v10.xsd" version="1.0">
+	<SetDTE ID="SetDoc">
+		<!-- declara un resumen de la información enviada, es obligatoria -->
+		<Caratula version="1.0">
+			<RutEmisor>97975000-5</RutEmisor>
+			<RutEnvia>7880442-4</RutEnvia>
+			<RutReceptor>60803000-K</RutReceptor>
+			<FchResol>2003-09-02</FchResol>
+			<NroResol>0</NroResol>
+			<TmstFirmaEnv>2003-10-13T09:33:22</TmstFirmaEnv>
+			<SubTotDTE>
+				<TpoDTE>33</TpoDTE>
+				<NroDTE>1</NroDTE>
+			</SubTotDTE>
+		</Caratula>
+
+		<DTE version="1.0">
+			<Documento ID="F60T33">
+				<!-- corresponden a la identificación del documento, información del emisor, información del
+				receptor y monto total de la transacción -->
+				<Encabezado>
+					<!-- =========================== -->
+					<!-- IDENTIFICACIÓN DEL DOCUMENTO-->
+					<!-- =========================== -->
+					<IdDoc>
+						<!-- TipoDTE: obligatorio, numerico, largo 3,
+						Codigo del documento del SII
+						
+						validaciones:
+							1. el campo debe ser numerico-->
+						<TipoDTE>33</TipoDTE> 
+						
+						<!-- Folio: obligatorio, largo 10, numerico, 
+						folio del documento electrónico
+						
+						validaciones:
+							1. el campo debe ser numerico-->
+						<Folio>60</Folio>
+						
+						<!-- Fecha emisión: obligatorio, largo 10, alfanumerico
+							 Fecha Emisión Contable del DTE (AAAA-MM-DD)
+							 
+							 ** Validación: debe estar entre el 01-04-2003 y el 31-12-2050-->
+						<FchEmis>2003-10-13</FchEmis>
+						
+
+						<!-- IndServicio: condicional, largo 1, numerico
+							 Indica si la transacción corresponde a la prestación de un servicio:
+
+							1. Factura de servicios periódicos domiciliarios
+							2. Factura de otros servicios periódicos
+							3. Factura de Servicios. (en caso de Factura de Exportación: Servicios calificados como tal por Aduana)
+							4. El campo debe ser numerico-->
+						<IndServicio>2</IndServicio>
+						
+						<!-- Monto bruto: condicional, largo 1, numerico
+
+							Indica si las líneas de detalle, descuentos y recargos se expresan en montos brutos. 
+							(Sólo para documentos sin impuestos adicionales).
+
+							Validaciones:
+							1.El campo debe ser numerico
+						 -->
+						<MntBruto>1</MntBruto>
+
+
+
+						<!-- TpoTranCompra: opcional, largo 1, numerico
+						
+						Es una sugerencia que indica el Tipo de Transacción de Compra para el comprador donde el vendedor no es responsable por errores en su
+						digitación. Campo opcional para indicar en el documento qué tipo de compra es para el comprador (para el Receptor de Factura o Emisor de
+						Factura de Compra).
+						
+						Disponible sólo para facilitar el registro en las compras. No obliga al comprador a registrarlo de la misma forma en sus compras.
+
+						Tipo de Compra para el comprador:
+						1: Compras del Giro
+						2: Compras en Supermercados o similares
+						3: Adquisición Bien Raíz.
+						4: Compra Activo Fijo
+						5: Compra con IVA Uso Común
+						6: Compra sin derecho a Crédito
+						7: Compra que no corresponde incluir
+
+						Validaciones:
+
+						1. debe pertener al listado
+						2. debe ser numerico
+						-->
+						<TpoTranCompra>1</TpoTranCompra>
+
+						<!-- TpoTranVenta: opcional, largo 1, numerico
+						Indica el Tipo de Transacción de Venta. Campo opcional a nivel de Schema, pero obligatorio en su uso.
+						En caso de no informarse se asumirá como “Ventas del Giro”. Se indica en el documento qué tipo de Venta es
+						para el vendedor (para el Emisor de Factura o Receptor de Factura de Compra)
+
+						Disponible para facilitar el registro en las Ventas. Obliga al vendedor a registrarlo de la misma forma 
+						en sus ventas.
+						
+						Inicialmente opcional en el Schema, más adelante será un campo obligatorio
+
+						Tipo de Venta para el vendedor:
+						1: Ventas del Giro
+						2: Venta Activo Fijo
+						3: Venta Bien Raíz
+
+						validaciones:
+						1. debe pertener al listado
+						2. debe ser numerico
+						-->
+						<TpoTranVenta>1</TpoTranVenta>
+
+						<!-- FmaPago: condicional, largo 1, numerico 
+						
+						Indica en qué forma se pagará. En el caso de una Factura por “Entrega Gratuita”, se debe indicar el 3. Una
+						Factura de este tipo no tiene derecho a crédito fiscal. Para hacer uso de crédito fiscal las facturas, 
+						facturas no afectas o exentas, y las liquidaciones facturas electrónicas, que tengan saldo
+						insoluto pendiente de pago al momento de la emisión (CREDITO), deberán cumplir con el requisito de
+						otorgar, o entenderse otorgado, el recibo de mercaderías entregadas o servicios prestados.
+						
+						Es obligatorio informar este campo. En caso de no existir este campo se entenderá que tiene valor 2 (Crédito).
+
+						1: Contado
+						2: Crédito
+						3: Sin costo (entrega gratuita)
+
+						validaciones:
+						1. debe pertener al listado
+						2. debe ser numerico
+						-->
+						<FmaPago>2</FmaPago>
+						
+						<!-- FchCancel: opcional, largo 10, alfanumerico
+						
+						Sólo se utiliza si la factura ha sido cancelada antes de la fecha de emisión. (AAAA-MM-DD)
+						
+						validaciones:
+							1.- Fecha válida entre 2002-08-01 y 2050-12-31
+						-->
+						<FchCancel>2021-11-14</FchCancel>
+
+						<!-- MntCancel: opcional, largo 18, numerico
+						Al momento de emitirse el documento
+						-->
+						<MntCancel>10000</MntCancel>
+
+						<!-- SaldoInsol: opcional, largo 18, numerico -->
+						<SaldoInsol>15000</SaldoInsol>
+
+						<!-- MntPagos: opcional, Hasta 30 repeticiones.
+						Opcional para especificar programación de pagos del documento-->
+						<MntPagos>
+							<!-- FchPago: obligatorio si se incluye un registro, largo 10, alfanumerico 
+							Fecha de pago programado (AAAA-MM-DD)
+							
+							validaciones:
+							 1.- Fecha formato válido-->
+							<FchPago>2021-11-14</FchPago>
+
+							<!-- MntPago: obligatorio si se incluye un registro, largo 18, numerico
+							Monto de pago programado -->
+							<MntPago>10000</MntPago>
+
+							<!-- GlosaPagos: opcional, largo 40, alfanumerico
+							Glosa Adicional para calificar pago 
+							-->
+							<GlosaPagos>Esta es una glosa de pago</GlosaPagos>
+						</MntPagos>
+
+						<!-- PeriodoDesde: opcional, largo 10, alfanumerico.
+						Período de facturación para Servicios Periódicos. (AAAA-MM-DD)
+						Fecha desde (Fecha inicial del servicio facturado) 
+						
+						Validaciones:
+							1. Fecha válida, menor o igual que “fecha hasta”-->
+						<PeriodoDesde>2021-11-01</PeriodoDesde>
+
+
+						<!-- PeriodoHasta: opcional, largo 10, alfanumerico
+						Período de facturación para Servicios Periódicos. (AAAA-MM-DD)
+						Fecha hasta (Fecha final del servicio facturado)
+
+						validaciones:
+							1. Fecha válida, mayor que valor de Periodo desde
+						-->
+						<PeriodoHasta>2021-11-30</PeriodoHasta>
+						
+					
+						
+						<!-- MedioPago: opcional, largo 2, alfanumerico
+						Indica en que modalidad se pagará.
+
+						CH: Cheque;
+						CF: Cheque a fecha
+						LT:letra,EF:Efectivo,
+						PE: Pago A Cta. Cte.;
+						TC:Tarjeta Crédito,
+						OT:Otro
+
+						Validaciones:
+								1.- debe pertener al listado
+						-->
+						<MedioPago>TC</MedioPago>
+
+						<!-- TipoCtaPago: opcional, largo 2, alfanumerico
+						Cuenta, 
+							CT: Cta.Cte
+							AH:Ahorro
+							OT:Otra
+
+							Validaciones:
+								1.- debe pertener al listado
+						-->
+						<TipoCtaPago>CT</TipoCtaPago>
+
+						<!-- NumCtaPago: opcional, largo 20, alfnumerico.
+						Numero de la Cuenta, sin validacion-->
+						<NumCtaPago>3021999</NumCtaPago>
+
+						<!-- BcoPago: opcional, largo 40, alfanumerico.
+						Banco de la Cuenta, sin validacion
+						-->
+						<BcoPago>BANCO DE CHILE</BcoPago>
+
+						<!-- TermPagoCdg, opcional, largo 4, alfanumerico.
+						Términos del pago, es un código acordado entre las empresas, que indica términos de referencia
+						Ejemplos: Fecha Recepción Factura (FRF), o Fecha entrega Mercaderías
+						(FEM), etc.
+						-->
+						<TermPagoCdg>FRF</TermPagoCdg>
+						
+
+						<!-- TermPagoGlosa: opcional, largo 100, alfanumerico
+						Glosa que describe las condiciones del pago del documento, codificado en el campo: “Términos del pagoCódigo”
+
+						Validaciones: 
+							1.- En documentos de Exportación Es obligatorio si se indicó el campo: “Términos del pago-Código”
+						
+						-->
+						<TermPagoGlosa>GLOSA DE TERMINO DE PAGO</TermPagoGlosa>
+						
+
+						<!-- TermPagoDias: opcional, largo 3, numerico.
+						Términos del pago, Cantidad de días de acuerdo al código de Términos de pago: Ejemplo
+							5 días Fecha entrega Mercaderías (Día = 5, Código =FEM)
+
+							validaciones:
+								1. Número mayor que cero
+								2. Debe ser numero 
+						-->
+						<TermPagoDias>10</TermPagoDias>
+						
+						<!-- FchVenc, condicional, largo 10, alfanumerico
+						Fecha de vencimiento del pago (AAAA-MM-DD) 
+						
+						validaciones:
+							1.Fecha válida entre 2002-08-01 y 2050-12-31 -->
+						<FchVenc>2021-11-14</FchVenc>
+
+						<!-- TipoFactEsp: para factura es un campo opcional, para factura exenta NO corresponde, largo 1, numerico.
+						Campo que indica que es una factura electrónica (tipo 33), con un formato especial.
+						
+						Este campo es opcional y solo se debe utilizar en caso que se utilice un tipo de facturación especial como la
+						facturación turista. Por defecto, para facturación normal este campo no debe ser informado.
+
+						validaciones:
+							1. debe ser numero
+							2. Valores posibles del 1 al 9
+							3. Si se utiliza <TipoFactEsp> = 1, entonces el <RUTRecep>=55555555-5, la comuna debe ser 
+							<CmnaOrigen>= Arica ó Camarones ó Putre ó General Lagos y los datos
+							del receptor extranjero debe informar <TipoDocID> y <NumId>
+						-->
+						<TipoFactEsp></TipoFactEsp>
+					</IdDoc>
+					
+					<!-- =========================== -->
+					<!-- DATOS DEL EMISOR-->
+					<!-- =========================== -->
+					<Emisor>
+						<!-- RUTEmisor: obligatorio, largo 10, alfanumerico.
+						Validaciones:
+						1. Formato correcto
+						2. Cuerpo numérico entre 100.000 y 99 millones, guión y dígito verificador
+						3. Alfanumérico entre 0 y 9 o K -->
+						<RUTEmisor>97975000-5</RUTEmisor>
+
+						<!-- RznSoc: obligatorio, largo 100, alfanumerico.
+						Nombre o Razón Social Emisor, sin validacion-->
+						<RznSoc>RUT DE PRUEBA</RznSoc>
+
+						<!-- GiroEmis: obligatorio, largo 80, alfanumerico.
+						Giro del negocio del Emisor, Glosa indicando giro del emisor. No es preciso registrar todos los giros, 
+						sino que se podrá registrar sólo el giro que corresponde a la transacción-->
+						<GiroEmis>Insumos de Computacion</GiroEmis>
+						
+						
+						<!-- Telefono, opcional, largo 20, alfanumerico.
+						Telefono del emisor, el nodo se puede repetir hasta 2 veces, sin validacion
+						-->
+						<Telefono>+56971394922</Telefono>
+
+						<!-- CorreoEmisor: opcional, largo 80, alfanumerico -->
+						<CorreoEmisor>emisor@nubox.com</CorreoEmisor>
+						
+						<!-- Acteco: obligatorio, largo 6, numerico.
+						Se acepta un máximo de 4 Códigos de actividad económica del emisor del DTE.
+						Se puede incluir sólo el código que corresponde a la transacción.
+
+						Validacion: 
+						1. debe ser numerico
+						2. máximo 4, deben estar registrado en el SII
+						-->
+						<Acteco>31341</Acteco>
+
+						<!-- Sucursal, opcional, largo 20, alfanumerico.
+						Indica nombre de la sucursal que emite el Documento. Corresponde a
+						un dato administrado por el emisor que puede ser un texto o un número.
+						
+						sin validaciones-->
+						<Sucursal>PUENTE ALTO</Sucursal>
+
+
+
+						<!-- CdgSIISucur: condicional, largo 9, numerico.
+						Código sucursal, Código numérico entregado por el SII,que identifica a cada sucursal que
+						está identificada en el Servicio de Impuestos Internos. Si no hay sucursales se puede omitir
+
+						Validaciones:
+							1. debe ser numero
+							2. Deber corresponder a un código registrado en el SII
+						-->
+						<CdgSIISucur>1234</CdgSIISucur>
+
+						<!-- DirOrigen: obligatorio, largo 60, alfanumerico.
+						Direccion Origen, Datos correspondientes a Dirección desde donde se despachan bienes o
+						de la sucursal que emite el documento si no hay despacho de bienes. -->
+						<DirOrigen>Teatinos 120, Piso 4</DirOrigen>
+						
+						<!-- CmnaOrigen: obligatorio, largo 20, alfanumerico.
+						
+						Comuna origen, Análogo a Dirección Origen. Si se utiliza <TipoFactEsp> = 1, entonces la comuna debe ser Arica ó
+						Camarones ó Putre ó General Lagos.
+						-->
+						<CmnaOrigen>Santiago</CmnaOrigen>
+						
+
+						<!-- CiudadOrigen: opcional, largo 20, alfanumerico
+						Ciudad Origen, Análogo a Dirección Origen, Sin validación  -->
+						<CiudadOrigen>Santiago</CiudadOrigen>
+
+						<!-- CdgVendedor: opcional, largo 60, alfanumerico
+						Glosa con identificador del vendedor, Sin validación -->
+						<CdgVendedor></CdgVendedor>
+					</Emisor>
+
+					<!-- =========================== -->
+					<!-- RUT DEL MANDANTE-->
+					<!-- =========================== -->
+					<!-- RUTMandante: Condicional, largo 20, alfanumerico.
+					
+					Corresponde al RUT del mandante si el total de la venta o servicio es por 
+					cuenta de otro el cual es responsable del IVA devengado en el período con guión y dígito verificador
+
+					Vaiidaciones:
+						1. Cuerpo numérico entre 100.000 y 99 millones, guión y dígito verificador alfanumérico entre 0 y 9 o K.
+					-->
+					<RUTMandante></RUTMandante>
+
+					<!-- =========================== -->
+					<!-- DATOS DEL RECEPTOR-->
+					<!-- =========================== -->
+					<Receptor>
+						<!-- RUTRecep: obligatorio, largo 10, alfanumerico
+						Corresponde al RUT del cliente, excepto en la Factura de compra en que se referencia al vendedor
+						Con guión y dígito verificador.
+
+						En Factura Electrónica si utiliza el Tipo de Factura Especial Turista debe ingresar el RUT 55.555.555-5
+
+						Validaciones: 
+						1. Cuerpo numérico entre 100.000 y 99 millones, guión y dígito verificador alfanumérico entre 0 y 9 o K
+						-->
+						<RUTRecep>77777777-7</RUTRecep>
+
+						<!-- CdgIntRecep: opcional, largo 20, alfanumerico
+						Código Interno del Receptor, Para identificación interna del Receptor, por ejemplo código del cliente, 
+						número de medidor, etc.
+						Sin validación.-->
+						<CdgIntRecep></<CdgIntRecep>>
+
+						<!-- RznSocRecep: obligatorio, largo 100, alfanumerico.
+							Nombre o Razón Social Receptor, Sin validación-->
+						<RznSocRecep>EMPRESA  LTDA</RznSocRecep>
+
+						<!-- TipoDocID: opcional para factura, no aplica para facturas exentas, largo 20, alfanumerico.
+						
+						Identificación del Documento con el cual se identifica el turista.
+							Valores:
+							1: Pasaporte
+							2: DNI
+							Se activa y es obligatorio cuando <TipoFactEsp> = 1
+
+						Validaciones:
+						1. debe pertenecer a la lista
+						-->
+						<TipoDocID></TipoDocID>
+
+						<!--GiroRecep: obligatorio, largo 40, alfanumerico
+						Giro del negocio del Receptor,Glosa impresa indicando giro del receptor-->
+						<GiroRecep>COMPUTACION</GiroRecep>
+
+						<!-- Contacto: opcional, largo 80, alfanumerico.
+						Contacto receptor, Glosa con nombre y teléfono de contacto en empresa del receptor, sin validaciones-->
+						<Contacto></Contacto>
+						
+						
+						
+						<!-- CorreoRecep, opcional, largo 80, alfanumerico.
+						e-mail de contacto en empresa del receptor
+						
+						Validaciones:
+							1. formato correo-->
+						<CorreoRecep></CorreoRecep>
+						
+						<!--DirRecep: obligatorio, largo 70, alfanumerico.
+						Dirección Receptor, Dirección Legal del Receptor (registrada en el SII) En caso de documentos de
+						exportación, corresponde a la dirección en el extranjero del receptor.
+						
+						Sin validaciones.-->
+						<DirRecep>SAN DIEGO 2222</DirRecep>
+						
+						<!--CmnaRecep: obligatorio, largo 20, alfanumerico.
+						Análogo a Dirección Receptor, sin validaciones-->
+						<CmnaRecep>LA FLORIDA</CmnaRecep>
+						
+						<!--CiudadRecep: opcional, largo 20, alfanumerico.
+						Análogo a Dirección Receptor, sin validaciones -->
+						<CiudadRecep>SANTIAGO</CiudadRecep>
+
+
+						<!--DirPostal: opcional, largo 70, alfanumerico.
+						Dirección Postal Receptor, Análogo a Dirección Receptor, sin validaciones-->
+						<DirPostal></DirPostal>
+ 
+
+						<!--CmnaPostal: opcional, largo 20, alfanumerico.
+						Comuna Postal, Análogo a Dirección Recepto, sin validacionesr-->
+						<CmnaPostal></CmnaPostal>
+
+
+						<!--CiudadPostal: opcional, largo 20, alfanumerico.
+						Ciudad Postal, Análogo a Dirección Receptor-->
+						<CiudadPostal>
+					</Receptor>
+
+					<!-- =========================== -->
+					<!-- VER SI INCLUIMOS TRASNPORTE -->
+					<!-- =========================== -->
+
+					<!-- =========================== -->
+					<!-- TOTALES -->
+					<!-- =========================== -->
+					<Totales>
+						<!-- MntNeto: condicional para factura, no aplica para factura exenta, largo 18, numerico.
+						Monto neto, Suma de valores total de ítems 
+						afectos-descuentos globales + recargos globales (Asignados a ítems afectos). 
+
+						Si está encendido el Indicador de Montos Brutos (=1) entonces el resultado anterior se debe dividir por
+						(1 + tasa de IVA)
+
+						Validaciones:
+							1. debe ser numero
+							2. En Liquidaciones-Factura puede tomar valor negativo
+						-->
+						<MntNeto>100000</MntNeto>
+
+						<!-- MntExe: condicional para factura, obligatorio para factura exenta, largo 18, numerico.
+						Monto no afecto o exento, 
+						Suma de valores total de ítems exentos - descuentos globales + recargos globales (Asignados a ítems exentos o no afectos)
+						
+						Validaciones:
+							1. debe ser numero.
+							2. En Liquidaciones-Factura puede tomar valor negativo
+						 -->
+						<MntExe></MntExe>
+						
+						<!-- MntBase: condicional para factura afecta, no aplica para factura exenta, largo 18, numerico.
+						Monto base faenamiento carne, Monto informado.
+
+						Validaciones:
+						1. de ser numero.
+						2. Valores >0
+						-->
+						<MntBase><MntBase>
+						
+						<!-- MntMargenCom: condicional para factura afecta, no aplica para factura exenta, largo 18, numerico.
+						Monto Base de Márgenes de Comercialización, Monto informado.
+
+						Validaciones:
+						1. de ser numero.
+						-->
+						<MntMargenCom><MntMargenCom>
+						
+						
+						<!-- TasaIVA: condicional, largo 5, numerico.
+						3 enteros, 2 decimales.
+
+						Vaidaciones:
+						1. debe ser un porcentaje (Ej: 19.5) -->
+						<TasaIVA>19</TasaIVA>
+
+						<!-- IVA, condicional, largo 18, numerico.
+
+						Validaciones:
+							1. debe ser numero.
+							2. debe ser validado, Valor ingresado debe ser igual a Monto neto * tasa IVA
+							3. Mayor o igual a 0 excepto en Liquidaciones-Factura, en que puede tomar valor negativo-->
+						<IVA>19000</IVA>
+
+						<!-- IVAProp: opcional para facturas afectas, no aplica para facturas exentas, largo 18, numerico.
+						IVA propio, Las empresas que venden por cuenta de un mandatario, pueden opcional separar el 
+						IVA en propio y de terceros. En todos estos casos el campo “IVA” debe contener el IVA total de la
+						Factura.
+						
+						Validaciones:
+						1. debe ser numero.
+						2. debe ser menor que IVA.
+						3. En Liquidaciones-Factura puede tomar valor negativo -->
+						<IVAProp><IVAProp>
+
+						<!-- IVATerc: opcional para facturas afectas, no aplica para facturas exentas, largo 18, numerico.
+						IVA terceros.
+
+						Validaciones:
+						1. debe ser numero.
+						2. debe ser menor que IVA.
+						3. En Liquidaciones-Factura puede tomar valor negativo -->
+						<IVATerc><IVATerc>
+
+
+						<!-- CredEC: condiconal para facturas afectas, no aplica para facturas exentas, largo 18, numerico.
+						Crédito especial 65% Empresas Constructoras, Artículo 21 del decreto ley N° 910/75. 
+						Este Es el único código que opera en forma opuesta al resto, ya que se resta al IVA general
+
+						Validaciones:
+							1. debe ser numero.
+							2. el valor debe ser igual a IVA * 0,65.
+						-->
+						<CredEC></CredEC>
+
+
+						<!-- GrntDep: condicional, largo 18, numerico
+
+						Garantía por depósito de envases o embalajes (no afecto), Sólo para empresas que usen envases 
+						en forma habitual, por su giro principal.
+						
+						Art.28,Inc3 Reglamento DL 825) (Cervezas, Jugos, Aguas Minerales, Bebidas Analcohólicas u otros
+						autorizados por Resolución especial).
+
+						Corresponde a la Sumatoria de las líneas de detalle que indican Indicador de facturación/ exención = 3
+
+						Validaciones:
+							1. debe ser numero.
+						-->
+						<GrntDep></GrntDep>
+						
+
+						<!-- MntTotal: obligatorio, largo 18, numerico.
+						Monto Total, Monto neto + Monto no afecto o exento + IVA + Impuestos Adicionales 
+						+ Impuestos Específicos + Iva Margen Comercialización +IVA Anticipado +
+						Garantía por depósito de envases o embalajes - Crédito empresas constructoras - IVA Retenido productos
+						(en caso de facturas de compra) - Valor Neto Comisiones y Otros Cargos - IVA Comisiones y Otros Cargos -
+						Valor Comisiones y Otros Cargos No Afectos o Exentos. (Los Impuestos Adicionales y el IVA Anticipado
+						están detallados en la TABLA de Impuestos Adicionales y Retenciones).
+
+						Validaciones:
+							1. debe ser numero.
+							2. En LiquidacionesFactura, puede tomar valor negativo.
+							3. En Documentos de exportación es “0” (cero) si forma de pago es = 21 (sin pago).
+						-->
+						<MntTotal>119000</MntTotal>
+
+						<!--MontoNF: condicional, largo 18, numerico.
+						Monto no Facturable, Suma de montos de bienes o servicios con Indicador de facturación / exención = 2 
+						menos Suma de montos de bienes o servicios con Indicador de facturación/ exención = 6
+						
+						Validaciones:
+							1. debe ser numero.
+							2. puede ser negativo.
+
+						-->
+						<MontoNF></MontoNF>
+
+
+						<!-- MontoPeriodo: opcional, largo 18, numerico.
+						Monto Período, Monto Período, Monto Total + Monto no Facturable 
+						
+						Validaciones:
+							1. debe ser numero.
+							2. puede ser negativo.-->
+						<MontoPeriodo></MontoPeriodo>
+
+ 
+						<!-- SaldoAnterior: opcional, largo 18, numerico.
+						Saldo Anterior. Se incluye sólo con fines de ilustrar con claridad el cobro.
+
+						Validaciones:
+							1. debe ser numero.
+							2. puede ser negativo.-->
+						
+						<SaldoAnterior></SaldoAnterior>
+
+						<!-- VlrPagar: opcional, largo 18, numerico.
+						Valor a pagar, Valor cobrado.
+
+						Validaciones:
+							1. debe ser numero.
+							2. puede ser negativo.-->
+						<VlrPagar></VlrPagar>
+
+
+						<!-- OTRA MONEDA ENCABEZADO -->
+
+
+
+						<!-- ImptoReten: condicional,
+						Impuestos Adicionales y retenciones, Se pueden incluir 20 repeticiones de pares código – valor. 
+						Incluye los dos campos siguientes. -->
+						<ImptoReten>
+
+							<!-- TipoImp: condicional, largo 3, alfanumerico
+							Código de Impuesto adicional o Retención
+							Código del impuesto o retención de acuerdo a la codificación detallada en tabla de códigos (ver Punto 4 del índice).
+							Incluye Retención de Cambio sujeto de Construcción
+
+							Validaciones:
+							1. Código válido de impuesto o retención 
+							-->
+							<TipoImp></TipoImp>
+
+
+							<!-- TasaImp: condicional, largo 5, numerico.
+							Tasa de Impuesto o Retención, Se debe indicar la tasa de Impuesto adicional o 
+							retención. En el caso de impuesto específicos se puede omitir 
+
+							Validaciones:
+								1. Según las tasa válidas al momento de la transacción. -->
+							<TasaImp></TasaImp>
+
+
+
+
+							<!-- MontoImp: condicional, largo 18, numerico.
+							Valor del Impuesto o Retención, Valor del impuesto o retención 
+							asociado al código indicado anteriormente
+							
+							Validaciones:
+								1. Tasa * (Suma de líneas de detalle con código de Impuesto adicional o retención), excepto Diesel, 
+								Gasolina, margen de comercialización e “Iva anticipado faenamiento carne”
+								2. Tasa * Monto base faenamiento para Iva anticipado faenamiento carne
+								3. Valor numérico en otros casos > 0-->
+							<MontoImp></MontoImp>
+						</ImptoReten>
+					</Totales>
+				</Encabezado>
+
+
+				<!-- ================================ -->
+				<!-- DETALLE DE PRODUCTOS O SERVICIOS -->
+				<!-- ================================ -->
+				<Detalle>
+					<!-- NroLinDet: obligatorio, largo 4, numerico.
+					N° de Línea o Numero Secuencial, número del ítem. Desde 1 a 60
+					
+					Validaciones:
+						1. debe ser numero.
+						2. validar secuencia -->
+					<NroLinDet>1</NroLinDet>
+
+					<!-- Códigos de Ítem -->
+					<CdgItem>
+						<!-- TpoCodigo, opcional, largo 10, alfanumerico
+						Tipo código, Tipo de codificación utilizada para el ítem
+							Standard: EAN, PLU, DUN o Interna (Hasta 5 tipos de códigos)
+
+						Ejemplo: EAN13, PLU, DUN14, INT1, INT2, EAN128, etc.
+
+						** Sin validación.
+						-->
+						<TpoCodigo>INT1</TpoCodigo>
+
+						<!-- VlrCodigo, opcional, largo 35, alfanumerico.
+						Código del producto de acuerdo a tipo de codificación indicada en campo anterior
+						(Hasta 5 códigos) -->
+						<VlrCodigo>011</VlrCodigo>
+					</CdgItem>
+
+					<!-- IndExe: condicional, largo 1, numerico.
+					Indicador de facturación/ exención.
+
+					Indica si el producto o servicio es exento o no afecto a impuesto o si ya ha sido facturado.
+					(También se utiliza para indicar garantía de depósito por envases. Art.28,Inc3 Reglamento DL
+					825) (Cervezas, Jugos, Aguas Minerales, Bebidas Analcohólicas u otros autorizados por Resolución
+					especial).
+
+					Si todos los ítems de una factura tienen valor 1 en este indicador la factura no puede ser factura
+					electrónica (código 33), debería ser factura exenta (código 34). Sólo en caso de Liquidación-Factura
+					que tenga ítems no facturables negativos, se debe señalar el indicador 2, e informar el valor con
+					signo negativo.
+
+					1: No afecto o exento de IVA (10)
+					2: Producto o servicio no es facturable
+					3: Garantía de depósito por envases (Cervezas, Jugos, Aguas Minerales, Bebidas Analcohólicas u
+					otros autorizados por Resolución especial)
+					4: Ítem No Venta. (Para facturas y guías de despacho (ésta última con Indicador Tipo de Traslado 
+					de Bienes igual a 1) y este ítem no será facturado.
+					5: Ítem a rebajar. Para guías de despacho NO VENTA que rebajan guía anterior. En el área
+					de referencias se debe indicar la guía anterior.
+					6: Producto o servicio no facturable negativo (excepto en liquidaciones-factura)
+
+					Validaciones:
+						1. debe ser numero
+					-->
+					<IndExe></IndExe>
+
+					<!--Retenedor: condicional -->
+					<Retenedor>
+					
+						<!-- IndAgente, condicional para factura afecta, no aplica para factura exenta, largo 1, alfanumerico
+							
+							Indicador Agente Retenedor,Obligatorio para agentes retenedores, indica para 
+							cada transacción si es agente retenedor del producto que está vendiendo
+							
+							Validaciones:
+								1. debe ser "R"-->
+						<IndAgente></IndAgente>
+
+
+						<!-- MntBaseFaena: condicional para factura afecta, no aplica para factura exenta, largo 18, numerico.
+						Monto Base Faenamiento, Sólo para transacciones realizadas por Agentes Retenedores, según códigos de retención 17
+
+						Validaciones:
+							1. debe ser numero
+						-->
+						<MntBaseFaena></MntBaseFaena>
+
+
+						<!-- MntMargComer: condicional para factura afecta, no aplica para factura exenta, largo 18, numerico.
+						Monto Base Márgenes de Comercialización, Sólo para transacciones realizadas por Agentes Retenedores, 
+						según códigos de retención 14 y 50.
+						
+						Validaciones:
+							1. debe ser numero-->
+						<MntMargComer><MntMargComer> 
+
+						<!-- PrcConsFinal: condicional para factura afecta, no aplica para factura exenta, largo 18, numerico.
+						Precio Unitario Neto Consumidor Final, Sólo para transacciones realizadas por
+						Agentes Retenedores, según códigos de retención 14, 17 y 50.
+						
+						Validaciones:
+							1. debe ser numero-->
+						<PrcConsFinal></PrcConsFinal>
+					</Retenedor>
+
+					<!--mNmbItem: obligartorio, largo 80, alfanumerico.
+					Nombre del producto o servicio, sin validacion. -->
+					<NmbItem>Parlantes Multimedia 180W.</NmbItem>
+
+					<!--DscItem: opcional, largo 1000, alfanumerico.
+					Descripción Adicional del producto o servicio. Se utiliza para pack, servicios con detalle  -->
+					<DscItem></DscItem>
+
+					<!--QtyItem: condicional para facturas afectas, opcional para facturas exentas, largo 18, numerico.
+
+					Cantidad de referencia, Cantidad para la unidad de medida de referencia (no se usa para el cálculo
+					del valor neto) en 12 enteros y 6 decimales.
+
+					Obligatorio para facturas de venta o compra que indican emisor opera como Agente Retenedor.
+					
+					Validaciones:
+						1. debe ser numero-->
+					<QtyItem>20</QtyItem>
+
+
+					<!-- Distribución de la Cantidad, Se pueden incluir 5 repeticiones de pares cantidad – código. Incluye los
+					dos campos siguientes: -->
+					<Subcantidad>
+						<!-- SubQty: opcional, largo 18, numerico.
+						Subcantidad_Distribuida.
+						
+						Validaciones:
+							1. Valor numérico <= Cantidad. -->
+						<SubQty></SubQty>
+
+						<!-- SubCod: opcional, largo 35, alfanumerico.
+						Código subcantidad, Código descriptivo. Se repite hasta cinco veces. -->
+						<SubCod></SubCod>
+					</Subcantidad>
+
+					<!-- FchElabor: opcional, largo 10, alfanumerico.
+					Fecha de elaboración Del ítem, sin validaciones. -->
+					<FchElabor></FchElabor>
+ 
+					<!--FchVencim: opcional, largo 10, alfanumerico.
+					Fecha vencimiento del item.
+
+					Validaciones:
+						1. Fecha valida -->
+					<FchVencim></FchVencim>
+
+					<!-- UnmdItem: condicional para facturas afectas, opcional para facturas exentas, largo 4, alfanumerico.
+					Unidad de Medida, 
+					Validaciones:
+						1. Obligatorio para facturas de venta, compra o notas que indican emisor opera como Agente Retenedor
+						2. Obligatorio en Guías de Despacho con Indicador de tipo de Traslado de Bienes = 8 y 9 -->
+					<UnmdItem></UnmdItem>
+
+					<!--PrcItem: condicional, largo 18, numerico.
+						Precio Unitario del Ítem, puede tener 12 enteros, 6 decimales.
+						
+						Validaciones:
+							1. debe ser numero
+						-->
+					<PrcItem>4500</PrcItem>
+
+					<!-- OTRA MONEDA DETALLE  -->
+
+
+					<!-- DescuentoPct: opcional, largo 5, numerico.
+					Descuento en % en 3 enteros y 2 decimales.
+
+					Validaciones:
+						1. debe ser numero-->
+					<DescuentoPct></DescuentoPct>
+
+
+					<!-- DescuentoMonto: condicional, largo 18, numerico.
+					Monto Descuento, Correspondiente al anterior. Totaliza todos los descuentos otorgados al ítem
+
+					Validaciones:
+						1. debe ser numero
+						2. si se agrega % de descuento, es obligatorio. -->
+					<DescuentoMonto></DescuentoMonto>
+
+					<!-- Se pueden incluir 5 repeticiones de pares Tipo – Valor. -->
+					<Subdescuento>					
+						<!--TipoDscto: opcional, largo 1, alfanumerico.
+						Tipo de Subdescuento, Indica si el Subdescuento está en $ o %
+
+						Validaciones:
+							1. el caracter ingresado debe ser "$" o "%" -->
+						<TipoDscto></TipoDscto>
+						
+						<!-- ValorDscto: opcional, largo 18, numerico.
+							Subdescuentovalor,16 enteros, 2 decimales, sin validaciones -->
+						<ValorDscto></ValorDscto>
+					</Subdescuento>
+
+
+					<!-- RecargoPct: condicional, largo 5, numerico.
+					Recargo en porcentaje, Recargo (%) en 3 enteros y 2 decimales
+
+					Validaciones:
+						1. debe ser numero-->
+					<RecargoPct></RecargoPct>
+
+
+					<!-- RecargoMonto: condicional, largo 18, numerico.
+					Monto Recargo, Correspondiente al anterior. Totaliza todos los recargos otorgados al ítem
+					
+					Validaciones:
+						1. debe ser numero.
+						2. Si va el recargo en %, debe ir el monto correspondiente. -->
+					<RecargoMonto></RecargoMonto>
+
+					<!-- Distribución del Recargo, Se pueden incluir 5 repeticiones de pares Tipo – Valor. -->
+					<SubRecargo>
+					
+						<!-- TipoRecargo: opcional, largo 1, alfanumerico.
+						Indica si el Sub-recargo está en $ o %.
+
+						Validaciones:
+							1. debe ser "$" o "%"-->
+						<TipoRecargo></TipoRecargo>
+
+
+						<!-- ValorRecargo: opcional, largo 18, numerico.
+							
+							Sub-recargo-valor, 16 enteros, 2 decimales, sin validacion -->
+						<ValorRecargo></ValorRecargo>
+
+					</SubRecargo>
+
+					<!-- ============================= -->
+					<!-- TABLA de Códigos de Impuesto Adicional y Retenciones (averiguar com se inclute, 
+					en la documentación no es clara) -->
+					<!-- ============================= -->
+
+					
+
+					<!-- MontoItem: obligatorio, largo 18, numerico.
+					Monto Item (Valor por línea de detalle).
+
+					Se calcula como: (Precio Unitario * Cantidad ) – Monto Descuento + Monto Recargo
+
+					Validaciones:
+						1. Debe ser cero cuando:
+							1.1. Indicador de facturación/ exención tiene valor 4 o 5
+							1.2. Es una Nota de Crédito tipo fe de erratas.(Ver campo Código de Referencia en Referencias)
+						2) Puede ser cero cuando el documento es una Guía de despacho NO VENTA (Segúncampo Indicador
+						   Tipo de traslado de bienes del encabezado)
+						3) En liquidaciones factura puede ser negativo.
+							CUANDO ES CERO PUEDE NO IMPRIMIRSE o Imprimirse un texto explicatorio (s/valor, sin costo, etc)
+					-->
+					<MontoItem>90000</MontoItem>
+
+
+					<!-- incluir SUBTOTALES INFORMATIVOS -->
+					<!-- INFORMACIÓN DE DESCUENTOS O RECARGOS -->
+
+					<!-- para notas de credito y debito INFORMACIÓN DE REFERENCIA -->
+
+				</Detalle>
+				<Detalle>
+					<NroLinDet>2</NroLinDet>
+					<CdgItem>
+						<TpoCodigo>INT1</TpoCodigo>
+						<VlrCodigo>0231</VlrCodigo>
+					</CdgItem>
+					<NmbItem>Mouse Inalambrico PS/2</NmbItem>
+					<DscItem/>
+					<QtyItem>1</QtyItem>
+					<PrcItem>5000</PrcItem>
+					<MontoItem>5000</MontoItem>
+				</Detalle>
+
+				<Detalle>
+					<NroLinDet>3</NroLinDet>
+					<CdgItem>
+						<TpoCodigo>INT1</TpoCodigo>
+						<VlrCodigo>1515</VlrCodigo>
+					</CdgItem>
+					<NmbItem>Caja de Diskettes 10 Unidades</NmbItem>
+					<DscItem/>
+					<QtyItem>5</QtyItem>
+					<PrcItem>1000</PrcItem>
+					<MontoItem>5000</MontoItem>
+				</Detalle>
+				
+				<!-- ============================= -->
+				<!-- es el timbre, es obligatorio. -->
+				<!-- ============================= -->
+				<TED version="1.0">
+
+					<!-- La sección Datos (<DD>), contiene los datos representativos del DTE: RUT del emisor, tipo
+					del DTE, folio del DTE, fecha de emisión, RUT del receptor, Razon Social del Receptor,
+					Monto Total del DTE, Descripción del primer Item de detalle, el CAF y el TimeStamp (fecha y
+					hora) de generación del timbre, etiquetados de la siguiente forma:  -->
+					<DD>
+						<RE>97975000-5</RE>
+						<TD>33</TD>
+						<F>60</F>
+						<FE>2003-10-13</FE>
+						<RR>77777777-7</RR>
+						<RSR>EMPRESA  LTDA</RSR>
+						<MNT>119000</MNT>
+						<IT1>Parlantes Multimedia 180W.</IT1>
+						<CAF version="1.0">
+							<DA>
+								<RE>97975000-5</RE>
+								<RS>RUT DE PRUEBA</RS>
+								<TD>33</TD>
+								<RNG>
+									<D>1</D>
+									<H>200</H>
+								</RNG>
+								<FA>2003-09-04</FA>
+								<RSAPK>
+									<M>0a4O6Kbx8Qj3K4iWSP4w7KneZYeJ+g/prihYtIEolKt3cykSxl1zO8vSXu397QhTmsX7SBEudTUx++2zDXBhZw==</M>
+									<E>Aw==</E>
+								</RSAPK>
+								<IDK>100</IDK>
+							</DA>
+							<FRMA algoritmo="SHA1withRSA">g1AQX0sy8NJugX52k2hTJEZAE9Cuul6pqYBdFxj1N17umW7zG/hAavCALKByHzdYAfZ3LhGTXCai5zNxOo4lDQ==</FRMA>
+						</CAF>
+						<TSTED>2003-10-13T09:33:20</TSTED>
+					</DD>
+					<FRMT algoritmo="SHA1withRSA">GbmDcS9e/jVC2LsLIe1iRV12Bf6lxsILtbQiCkh6mbjckFCJ7fj/kakFTS06Jo8iS4HXvJj3oYZuey53Krniew==</FRMT>
+				</TED>
+
+				<!-- ============================= -->
+				<!-- es la fecha y hora de firma, es obligatorio. -->
+				<!-- ============================= -->
+				<TmstFirma>2003-10-13T09:33:20</TmstFirma>
+			</Documento>
+
+			<!-- ============================= -->
+			<!-- es la firma Electrónica, es obligatoria. -->
+			<!-- El contribuyente debe generar la firma digital sobre el documento completo. Esta firma debe ser
+			generada con un certificado digital vigente y no revocado al momento de la firma.  -->
+			<!-- ============================= -->
+			<Signature
+				xmlns="http://www.w3.org/2000/09/xmldsig#">
+				<SignedInfo>
+					<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+					<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+					<Reference URI="#F60T33">
+						<Transforms>
+							<Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+						</Transforms>
+						<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+						<DigestValue>hlmQtu/AyjUjTDhM3852wvRCr8w=</DigestValue>
+					</Reference>
+				</SignedInfo>
+				<SignatureValue>JG1Ig0pvSIH85kIKGRZUjkyX6CNaY08Y94j4UegTgDe8+wl61GzqjdR1rfOK9BGn93AMOo6aiAgolW0k/XklNVtM/ZzpNNS3d/fYVa1q509mAMSXbelxSM3bjoa7H6Wzd/mV1PpQ8zK5gw7mgMMP4IKxHyS92G81GEguSmzcQmA=</SignatureValue>
+				<KeyInfo>
+					<KeyValue>
+						<RSAKeyValue>
+							<Modulus>
+tNEknkb1kHiD1OOAWlLKkcH/UP5UGa6V6MYso++JB+vYMg2OXFROAF7G8BNFFPQx
+iuS/7y1azZljN2xq+bW3bAou1bW2ij7fxSXWTJYFZMAyndbLyGHM1e3nVmwpgEpx
+BHhZzPvwLb55st1wceuKjs2Ontb13J33sUb7bbJMWh0=
+</Modulus>
+							<Exponent>
+AQAB
+</Exponent>
+						</RSAKeyValue>
+					</KeyValue>
+					<X509Data>
+						<X509Certificate>MIIEgjCCA+ugAwIBAgIEAQAApzANBgkqhkiG9w0BAQUFADCBtTELMAkGA1UEBhMC
+Q0wxHTAbBgNVBAgUFFJlZ2lvbiBNZXRyb3BvbGl0YW5hMREwDwYDVQQHFAhTYW50
+aWFnbzEUMBIGA1UEChQLRS1DRVJUQ0hJTEUxIDAeBgNVBAsUF0F1dG9yaWRhZCBD
+ZXJ0aWZpY2Fkb3JhMRcwFQYDVQQDFA5FLUNFUlRDSElMRSBDQTEjMCEGCSqGSIb3
+DQEJARYUZW1haWxAZS1jZXJ0Y2hpbGUuY2wwHhcNMDMxMDAxMTg1ODE1WhcNMDQw
+OTMwMDAwMDAwWjCBuDELMAkGA1UEBhMCQ0wxFjAUBgNVBAgUDU1ldHJvcG9saXRh
+bmExETAPBgNVBAcUCFNhbnRpYWdvMScwJQYDVQQKFB5TZXJ2aWNpbyBkZSBJbXB1
+ZXN0b3MgSW50ZXJub3MxDzANBgNVBAsUBlBpc28gNDEjMCEGA1UEAxQaV2lsaWJh
+bGRvIEdvbnphbGV6IENhYnJlcmExHzAdBgkqhkiG9w0BCQEWEHdnb256YWxlekBz
+aWkuY2wwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALxZlVh1xr9sKQIBDF/6
+Va+lsHQSG5AAmCWvtNTIOXN3E9EQCy7pOPHrDg6EusvoHyesZSKJbc0TnIFXZp78
+q7mbdHijzKqvMmyvwbdP7KK8LQfwf84W4v9O8MJeUHlbJGlo5nFACrPAeTtONbHa
+ReyzeMDv2EganNEDJc9c+UNfAgMBAAGjggGYMIIBlDAjBgNVHREEHDAaoBgGCCsG
+AQQBwQEBoAwWCjA3ODgwNDQyLTQwCQYDVR0TBAIwADA8BgNVHR8ENTAzMDGgL6At
+hitodHRwOi8vY3JsLmUtY2VydGNoaWxlLmNsL2UtY2VydGNoaWxlY2EuY3JsMCMG
+A1UdEgQcMBqgGAYIKwYBBAHBAQKgDBYKOTY5MjgxODAtNTAfBgNVHSMEGDAWgBTg
+KP3S4GBPs0brGsz1CJEHcjodCDCB0AYDVR0gBIHIMIHFMIHCBggrBgEEAcNSBTCB
+tTAvBggrBgEFBQcCARYjaHR0cDovL3d3dy5lLWNlcnRjaGlsZS5jbC8yMDAwL0NQ
+Uy8wgYEGCCsGAQUFBwICMHUac0VsIHRpdHVsYXIgaGEgc2lkbyB2YWxpZG8gZW4g
+Zm9ybWEgcHJlc2VuY2lhbCwgcXVlZGFuZG8gZWwgQ2VydGlmaWNhZG8gcGFyYSB1
+c28gdHJpYnV0YXJpbywgcGFnb3MsIGNvbWVyY2lvIHkgb3Ryb3MwCwYDVR0PBAQD
+AgTwMA0GCSqGSIb3DQEBBQUAA4GBABMfCyJF0mNXcov8iEWvjGFyyPTsXwvsYbbk
+OJ41wjaGOFMCInb4WY0ngM8BsDV22bGMs8oLyX7rVy16bGA8Z7WDUtYhoOM7mqXw
+/Hrpqjh3JgAf8zqdzBdH/q6mAbdvq/yb04JHKWPC7fMFuBoeyVWAnhmuMZfReWQi
+MUEHGGIW</X509Certificate>
+					</X509Data>
+				</KeyInfo>
+			</Signature>
+		</DTE>
+	</SetDTE>
+	<Signature
+		xmlns="http://www.w3.org/2000/09/xmldsig#">
+		<SignedInfo>
+			<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+			<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+			<Reference URI="#SetDoc">
+				<Transforms>
+					<Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+				</Transforms>
+				<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+				<DigestValue>4OTWXyRl5fw3htjTyZXQtYEsC3E=</DigestValue>
+			</Reference>
+		</SignedInfo>
+		<SignatureValue>sBnr8Yq14vVAcrN/pKLD/BrqUFczKMW3y1t3JOrdsxhhq6IxvS13SgyMXbIN/T9ciRaFgNabs3pi732XhcpeiSmD1ktzbRctEbSIszYkFJY49k0eB+TVzq3eVaQr4INrymfuOnWj78BZcwKuXvDy4iAcx6/TBbAAkPFwMP9ql2s=</SignatureValue>
+		<KeyInfo>
+			<KeyValue>
+				<RSAKeyValue>
+					<Modulus>
+tNEknkb1kHiD1OOAWlLKkcH/UP5UGa6V6MYso++JB+vYMg2OXFROAF7G8BNFFPQx
+iuS/7y1azZljN2xq+bW3bAou1bW2ij7fxSXWTJYFZMAyndbLyGHM1e3nVmwpgEpx
+BHhZzPvwLb55st1wceuKjs2Ontb13J33sUb7bbJMWh0=
+</Modulus>
+					<Exponent>
+AQAB
+</Exponent>
+				</RSAKeyValue>
+			</KeyValue>
+			<X509Data>
+				<X509Certificate>MIIEgjCCA+ugAwIBAgIEAQAApzANBgkqhkiG9w0BAQUFADCBtTELMAkGA1UEBhMC
+Q0wxHTAbBgNVBAgUFFJlZ2lvbiBNZXRyb3BvbGl0YW5hMREwDwYDVQQHFAhTYW50
+aWFnbzEUMBIGA1UEChQLRS1DRVJUQ0hJTEUxIDAeBgNVBAsUF0F1dG9yaWRhZCBD
+ZXJ0aWZpY2Fkb3JhMRcwFQYDVQQDFA5FLUNFUlRDSElMRSBDQTEjMCEGCSqGSIb3
+DQEJARYUZW1haWxAZS1jZXJ0Y2hpbGUuY2wwHhcNMDMxMDAxMTg1ODE1WhcNMDQw
+OTMwMDAwMDAwWjCBuDELMAkGA1UEBhMCQ0wxFjAUBgNVBAgUDU1ldHJvcG9saXRh
+bmExETAPBgNVBAcUCFNhbnRpYWdvMScwJQYDVQQKFB5TZXJ2aWNpbyBkZSBJbXB1
+ZXN0b3MgSW50ZXJub3MxDzANBgNVBAsUBlBpc28gNDEjMCEGA1UEAxQaV2lsaWJh
+bGRvIEdvbnphbGV6IENhYnJlcmExHzAdBgkqhkiG9w0BCQEWEHdnb256YWxlekBz
+aWkuY2wwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALxZlVh1xr9sKQIBDF/6
+Va+lsHQSG5AAmCWvtNTIOXN3E9EQCy7pOPHrDg6EusvoHyesZSKJbc0TnIFXZp78
+q7mbdHijzKqvMmyvwbdP7KK8LQfwf84W4v9O8MJeUHlbJGlo5nFACrPAeTtONbHa
+ReyzeMDv2EganNEDJc9c+UNfAgMBAAGjggGYMIIBlDAjBgNVHREEHDAaoBgGCCsG
+AQQBwQEBoAwWCjA3ODgwNDQyLTQwCQYDVR0TBAIwADA8BgNVHR8ENTAzMDGgL6At
+hitodHRwOi8vY3JsLmUtY2VydGNoaWxlLmNsL2UtY2VydGNoaWxlY2EuY3JsMCMG
+A1UdEgQcMBqgGAYIKwYBBAHBAQKgDBYKOTY5MjgxODAtNTAfBgNVHSMEGDAWgBTg
+KP3S4GBPs0brGsz1CJEHcjodCDCB0AYDVR0gBIHIMIHFMIHCBggrBgEEAcNSBTCB
+tTAvBggrBgEFBQcCARYjaHR0cDovL3d3dy5lLWNlcnRjaGlsZS5jbC8yMDAwL0NQ
+Uy8wgYEGCCsGAQUFBwICMHUac0VsIHRpdHVsYXIgaGEgc2lkbyB2YWxpZG8gZW4g
+Zm9ybWEgcHJlc2VuY2lhbCwgcXVlZGFuZG8gZWwgQ2VydGlmaWNhZG8gcGFyYSB1
+c28gdHJpYnV0YXJpbywgcGFnb3MsIGNvbWVyY2lvIHkgb3Ryb3MwCwYDVR0PBAQD
+AgTwMA0GCSqGSIb3DQEBBQUAA4GBABMfCyJF0mNXcov8iEWvjGFyyPTsXwvsYbbk
+OJ41wjaGOFMCInb4WY0ngM8BsDV22bGMs8oLyX7rVy16bGA8Z7WDUtYhoOM7mqXw
+/Hrpqjh3JgAf8zqdzBdH/q6mAbdvq/yb04JHKWPC7fMFuBoeyVWAnhmuMZfReWQi
+MUEHGGIW</X509Certificate>
+			</X509Data>
+		</KeyInfo>
+	</Signature>
+</EnvioDTE>
